@@ -4,7 +4,8 @@
 ![GitHub Pages](https://img.shields.io/badge/CI%2FCD-GitHub%20Pages-22C55E?logo=github-actions&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
-![Used as template](https://img.shields.io/github/forks/sergeypugin/quartz-ready-template?label=used%20as%20template&color=blue)
+
+[![Use this template](https://img.shields.io/badge/Use_this_template-2ea44f?style=for-the-badge&logo=github)](https://github.com/sergeypugin/quartz-ready-template/generate)
 
 Готовый, настроенный и оптимизированный шаблон для мгновенной публикации заметок и баз знаний из [Obsidian](https://obsidian.md/) в виде статического веб-сайта на движке [Quartz 5](https://quartz.jzhao.xyz/).
 
