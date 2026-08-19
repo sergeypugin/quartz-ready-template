@@ -6,7 +6,7 @@ configuration:
   enablePopovers: true
   analytics:
     provider: plausible
-  locale: ru-RU
+  locale: en-US
   baseUrl: quartz.jzhao.xyz
   ignorePatterns:
     - private
@@ -196,18 +196,17 @@ plugins:
     options:
       provider: giscus
       options: {}
-#    layout:
-#      position: afterBody
-#      priority: 10
-#  - source: "@quartz-community/footer"
-#    enabled: true
-#    options:
-#      links:
-#        GitHub: https://github.com/jackyzha0/quartz
-#        Discord Community: https://discord.gg/cRFFHYye7t
-#    layout:
-#      position: footer
-#      priority: 50
+    layout:
+      position: afterBody
+      priority: 10
+  - source: "@quartz-community/footer"
+    enabled: true
+    options:
+      links:
+        GitHub: https://github.com/sergeypugin/quartz-ready-template
+    layout:
+      position: footer
+      priority: 50
   - source: "@quartz-community/recent-notes"
     enabled: false
   - source: "@quartz-community/spacer"
