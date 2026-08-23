@@ -70,6 +70,8 @@ plugins:
   - source: "@quartz-community/table-of-contents"
     enabled: true
     order: 50
+    options:
+      minEntries: 0
     layout:
       position: right
       priority: 30
@@ -136,10 +138,7 @@ plugins:
       position: left
       priority: 50
   - source: "@quartz-community/graph"
-    enabled: true
-    layout:
-      position: right
-      priority: 10
+    enabled: false
   - source: "@quartz-community/search"
     enabled: true
     layout:
@@ -268,15 +267,7 @@ layout:
         left: []
         right: []
     content: {}
-    folder:
-      exclude:
-        - reader-mode
-      positions:
-        right: []
-    tag:
-      exclude:
-        - reader-mode
-      positions:
-        right: []
+    folder: {}
+    tag: {}
     canvas: {}
     bases: {}
