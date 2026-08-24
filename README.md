@@ -1,9 +1,8 @@
-# Obsidian & Quartz Template  
-  
-![Quartz](https://img.shields.io/badge/Powered%20by-Quartz%205-purple?logo=obsidian&logoColor=white)
-![GitHub Pages](https://img.shields.io/badge/CI%2FCD-GitHub%20Pages-22C55E?logo=github-actions&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-blue)
-![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+# Obsidian & Quartz Template
+
+[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-22C55E?logo=github-actions&logoColor=white)](https://pages.github.com/)
+[![Quartz 5](https://img.shields.io/badge/Engine-Quartz%205-7C3AED?logo=obsidian&logoColor=white)](https://quartz.jzhao.xyz)
+[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE.md)
 
 [![Use this template](https://img.shields.io/badge/Use_this_template-2ea44f?style=for-the-badge&logo=github)](https://github.com/sergeypugin/quartz-ready-template/generate)
 
@@ -11,7 +10,7 @@
 
 [GitHub vs Quartz](#github-vs-quartz) | [Быстрый старт](#быстрый-старт-как-создать-свой-сайт-за-1-минуту) | [Локальный запуск и тестирование](#локальный-запуск-и-тестирование) | [Документация](#документация)
 
-[Пример сайта по этому шаблону](https://sergeypugin.github.io/quartz-ready-template) | [Пример сайта по документации Quartz 5](https://quartz.jzhao.xyz)
+[Пример сайта по этому шаблону](https://sergeypugin.github.io/itmo-notebook) | [Пример сайта по документации Quartz 5](https://quartz.jzhao.xyz)
 
 ---
 
@@ -33,8 +32,18 @@ Markdown на GitHub не поддерживает большинство удо
 7. Сайт будет автоматически опубликован по адресу `https://{user}.github.io/{repo}` примерно через минуту. Более подробную информацию вы можете увидеть во вкладке `Deployments` справа в вашем репозитории на сайте.
 
 >[!important]
->Важно, чтобы в папке `content/` всегда была заметка `index.md`. Именно она открывается при переходе на сайт `https://{user}.github.io/{repo}`. Без неё пубикация не получится
+>Важно, чтобы в папке `content/` всегда была заметка `index.md`. Именно она открывается при переходе на сайт `https://{user}.github.io/{repo}`. Без неё публикация не получится
 
+>[!note]
+>При нажатии на папку на сайте открывается `index.md`, а если его нет, то простой список всех файлов в папке  
+
+>[!tip]
+>Чтобы в левом верхнем углу установить вашу надпись вместо `Quartz 5`, просто перейдите в `quartz.config.yaml` и введите вашу строку в этом блоке вместо `Quartz 5`:
+> ```yaml
+> configuration:
+>   pageTitle: Quartz 5
+> ```
+> 
 ### Удобное пользование
 
 >[!important]
@@ -55,7 +64,7 @@ Markdown на GitHub не поддерживает большинство удо
 >[!tip]
 >Все заметки вы можете называть на русском, однако при копировании ссылки сайта зачастую она превращается в это: https://sergeypugin.github.io/quartz-ready-template/#%D0%B4%D0%BE%D0%B1%D1%80%D0%BE-%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%B2-%D0%B1%D0%B0%D0%B7%D1%83-%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B9.
 >
->Чтобы такое избжать, рекомендуется называть заметки на английском и без пробелов, а для названий использовать свойство `title`, которое автоматически вырезается из заметки на сайте. Пример такого подхода вы можете увидеть в уже созданном файле `content/index.md`.
+>Чтобы такое избежать, рекомендуется называть заметки на английском и без пробелов, а для названий использовать свойство `title`, которое автоматически вырезается из заметки на сайте. Пример такого подхода вы можете увидеть в уже созданном файле `content/index.md`.
 
 >[!note]
 >Если вы хотите изменить язык интерфейса на русский, то перейдите в `quartz.config.yaml` в корне репозитория и замените строку `locale: en-US` на `locale: ru-RU`. Сам я предпочитаю так не делать, т.к. со шрифтом сайта, не рассчитанным на русский, надписи станут меньше
