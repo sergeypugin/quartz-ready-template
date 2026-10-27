@@ -1,13 +1,13 @@
 ---
 
-title: Главная страница
+title: Home
 
 ---
 
-# Добро пожаловать в базу знаний!
+# Welcome to your knowledge base!
 
-Именно сюда будет вести ссылка на ваш сайт, если вы воспользовались [шаблоном](https://github.com/sergeypugin/quartz-ready-template).
+This is the homepage for your site created from the [template](https://github.com/sergeypugin/quartz-ready-template).
 
-# Как изменить содержимое?
+# How to update the content
 
-Отредактируйте этот файл в Obsidian, чтобы изменить главную страницу, а затем сделайте `push` для автосборки сайта.
+Edit this file to update your homepage, then `push` your changes to trigger a site rebuild.
