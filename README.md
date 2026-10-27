@@ -17,7 +17,7 @@ A ready-to-use, configured, and optimized template for instantly publishing note
 ---
 
 ## GitHub vs Quartz
-  
+
 GitHub Markdown does not support most of Obsidian's convenient Markdown features. This template renders the following correctly on the site:
 - **Wiki-links:** `[[Note name]]` and `[[Note name|Custom text]]` with automatic path resolution.
 - **Callouts:** `> [!quote]`, `> [!success]`, `> [!bug]`, and more. Folding and custom titles are supported (`> [!note]- Clarification`, `> [!important]+ Important!`).
@@ -45,7 +45,7 @@ GitHub Markdown does not support most of Obsidian's convenient Markdown features
 > configuration:
 >   pageTitle: Quartz 5
 > ```
-> 
+>
 ### Tips for use
 
 >[!important]
@@ -56,7 +56,7 @@ GitHub Markdown does not support most of Obsidian's convenient Markdown features
 > # Before:
 >       - name: Build Quartz
 >         run: npx quartz build
-> 
+>
 > # After (for example, if the folder is named notes):
 >       - name: Build Quartz
 >         run: npx quartz build -d notes
@@ -64,7 +64,7 @@ GitHub Markdown does not support most of Obsidian's convenient Markdown features
 >Now, after every `push` to the repository, the notes folder used for the site will change to the one you specified.
 
 >[!tip]
->You can name notes in Russian, but when copying a site link it often turns into something like this: https://sergeypugin.github.io/quartz-ready-template/#%D0%B4%D0%BE%D0%B1%D1%80%D0%BE-%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%B2-%D0%B1%D0%B0%D0%B7%D1%83-%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B9.
+>You can name notes not in English, but when copying a site link it often turns into something like this: `https://{user}.github.io/{repo}/path/to/note/#%D0%B4%D0%BE%D0%B1%D1%80%D0%BE-%D0%BF...`.
 >
 >To avoid this, it is recommended to name notes in English without spaces and use the `title` property for their display names, which is automatically extracted from the note on the site. You can see an example of this approach in the pre-created `content/index.md` file.
 
