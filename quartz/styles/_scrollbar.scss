@@ -1,17 +1,30 @@
 @use "./variables.scss" as *;
 
-// Thin scrollbar for sidebars
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--lightgray);
-  border-radius: 10px;
-
-  &:hover {
-    background: var(--gray);
+/**
+ * Styled scrollbar mixin
+ */
+@mixin styled {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
   }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--lightgray);
+    border-radius: 10px;
+
+    &:hover {
+      background: var(--gray);
+    }
+  }
+
+  // Firefox support
+  scrollbar-width: thin;
+  scrollbar-color: var(--lightgray) transparent;
 }
 
 // Wider scrollbar for main content on hover

@@ -21,9 +21,8 @@ A ready-to-use template for publishing Markdown notes and knowledge bases as a s
 ```base
 filters:
   and:
-    - file.ext == "md"
     - file.name == "index"
-    - file.slug.startsWith("docs/")
+    - file.slug.contains("/")
 properties:
   title:
     displayName: 📚 Language

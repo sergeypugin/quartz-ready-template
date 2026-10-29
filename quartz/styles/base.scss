@@ -3,6 +3,7 @@
 @use "./variables.scss" as *;
 @use "./syntax.scss";
 @use "./callouts.scss";
+@use "./_scrollbar.scss" as scrollbar;
 
 html {
   scroll-behavior: smooth;
@@ -219,6 +220,7 @@ a {
     }
 
     & .sidebar {
+      overflow-y: auto;
       gap: 1.2rem;
       top: 0;
       box-sizing: border-box;
@@ -309,48 +311,6 @@ a {
   }
 }
 
-// ============================================================================
-// Page Frame Overrides
-// ============================================================================
-
-// Full-width frame: no sidebars, center content spans full width
-.page[data-frame="full-width"] > #quartz-body {
-  grid-template-columns: auto;
-  grid-template-rows: auto auto auto;
-  grid-template-areas:
-    "grid-header"
-    "grid-center"
-    "grid-footer";
-
-  @media all and ($tablet) {
-    grid-template-columns: auto;
-  }
-
-  & .center.full-width {
-    max-width: 100%;
-    min-width: 100%;
-  }
-}
-
-// Minimal frame: no sidebars, no header/footer chrome, body content only + footer
-.page[data-frame="minimal"] > #quartz-body {
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    "grid-center"
-    "grid-footer";
-
-  @media all and ($tablet) {
-    grid-template-columns: auto;
-  }
-
-  & .center.minimal {
-    max-width: 100%;
-    min-width: 100%;
-    margin: 0;
-  }
-}
-
 .footnotes {
   margin-top: 2rem;
   border-top: 1px solid var(--lightgray);
@@ -437,7 +397,6 @@ h6 {
   }
 }
 
-// typography improvements
 h1 {
   font-size: 1.75rem;
   margin-top: 2.25rem;
@@ -638,7 +597,6 @@ ol.overflow {
   width: 100%;
   margin-bottom: 0;
 
-  // clearfix
   content: "";
   clear: both;
 
@@ -659,9 +617,53 @@ ol.overflow {
 }
 
 .katex-display {
-  display: initial;
-  overflow-x: auto;
-  overflow-y: hidden;
+  display: block;
+  position: relative;
+  width: 100%;
+
+  @media all and ($mobile) {
+    &:has(.tag) {
+      padding-bottom: 2rem !important;
+    }
+  }
+
+  & > .katex {
+    display: block !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    position: static !important;
+    & > .katex-html {
+      display: block;
+      position: static !important;
+
+      &:has(> .tag) {
+        padding-right: 4.5rem;
+      }
+
+      @media all and ($mobile) {
+        &:has(> .tag) {
+          padding-right: 0 !important;
+        }
+      }
+
+      & > .tag {
+        position: absolute !important;
+        right: 0 !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        bottom: auto !important;
+        left: auto !important;
+
+        @media all and ($mobile) {
+          top: auto !important;
+          transform: none !important;
+          bottom: 0 !important;
+          right: 0 !important;
+        }
+      }
+    }
+  }
 }
 
 .external-embed.youtube,
