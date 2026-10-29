@@ -48,13 +48,15 @@ Quartz отображает их в блоке свойств вверху ст�
 **Базки (Bases)** позволяют создавать динамические таблицы-базы данных прямо в ваших заметках с помощью синтаксиса ` ```base `.
 
 > [!tip]- Пример синтаксиса блока Base
-> ```base
+> ```yaml
 > views:
 >   - name: Руководство по документации
 >     type: table
 >     filters:
 >       and:
->         - file.path.startswith("docs/ru")
+>         - file.ext == "md"
+>         - file.inFolder("docs/ru")
+>         - file.name != "index"
 >     sort:
 >       - property: priority
 >         order: asc

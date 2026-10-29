@@ -19,41 +19,5 @@ npx quartz build --serve
 
 The terminal prints the local site address, usually [http://localhost:8080](http://localhost:8080). Changes to files in `content/` refresh the page automatically.
 
-### Locales and Languages
-
-To change the Quartz interface language (search placeholder, dates, table headers), update the `locale` value in `quartz.config.yaml` (e.g., `locale: ru-RU`).
-
-> [!tip]- Supported interface languages
-> - `ar-SA`
-> - `ca-ES`
-> - `cs-CZ`
-> - `de-DE`
-> - `en-GB`
-> - `en-US` (Default)
-> - `es-ES`
-> - `fa-IR`
-> - `fi-FI`
-> - `fr-FR`
-> - `he-IL`
-> - `hu-HU`
-> - `id-ID`
-> - `it-IT`
-> - `ja-JP`
-> - `kk-KZ`
-> - `ko-KR`
-> - `lt-LT`
-> - `nb-NO`
-> - `nl-NL`
-> - `pl-PL`
-> - `pt-BR`
-> - `ro-RO`
-> - `ru-RU`
-> - `th-TH`
-> - `tr-TR`
-> - `uk-UA`
-> - `vi-VN`
-> - `zh-CN`
-> - `zh-TW`
-
 ---
 [Back to Home](index)

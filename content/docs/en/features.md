@@ -10,6 +10,18 @@ GitHub's Markdown renderer does not support every extension Quartz can render. Q
 - **Callouts:** `> [!quote]`, `> [!success]`, `> [!bug]`, and more, including folding and custom titles such as `> [!note]- Clarification` and `> [!important]+ Important!`.
 - **Bases** (`.base`) and **Canvas** (`.canvas`) files.
 
+### 🔧 More Than Just Notes
+
+This template transforms your folder of Markdown files into a full-featured website with professional tools:
+
+1.  **Explorer**: Intuitive file tree navigation, just like in an IDE or Obsidian.
+2.  **Search**: Instant full-text search across your entire knowledge base.
+3.  **Localization**: Interface support for 30+ languages (set via `locale`).
+4.  **Backlinks**: Quartz automatically shows which pages link to the current note.
+
+> [!success] Ready in 15 Minutes
+> It takes about 10 minutes to read the docs and 5 minutes to clone and configure the repository to launch your own "digital garden."
+
 > [!tip]
 > You can even resize images using the pipe syntax: `![alt text|200](image.png)` or `![alt text|200x100](image.png)`.
 

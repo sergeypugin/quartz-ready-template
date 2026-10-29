@@ -48,13 +48,15 @@ Quartz displays these properties in a metadata card at the top of the note using
 **Bases** allow you to create dynamic database-like tables directly in your notes using a simple code block syntax (` ```base `).
 
 > [!tip]- Bases Block Syntax Example
-> ```base
+> ```yaml
 > views:
 >   - name: Documentation Guide
 >     type: table
 >     filters:
 >       and:
->         - file.path.startswith("docs/en")
+>         - file.ext == "md"
+>         - file.inFolder("docs/en")
+>         - file.name != "index"
 >     sort:
 >       - property: priority
 >         order: asc
