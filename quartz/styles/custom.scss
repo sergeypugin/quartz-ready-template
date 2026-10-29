@@ -1,3 +1,7 @@
 @use "./variables.scss" as *;
+@use "./base.scss";
+@use "./_scrollbar.scss";
+@use "./callouts.scss";
+@use "./syntax.scss";
 
 // put your custom CSS here!
