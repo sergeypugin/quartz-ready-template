@@ -1,13 +1,16 @@
 ---
-
 title: Home
+---
+
+A ready-to-use template for publishing Markdown notes and knowledge bases as a static website powered by [Quartz 5](https://quartz.jzhao.xyz/). Edit Markdown files with any editor; Obsidian is optional.
 
 ---
 
-# Welcome to your knowledge base!
+### Documentation
 
-This is the homepage for your site created from the [template](https://github.com/sergeypugin/quartz-ready-template).
+- [English Documentation](docs/en/index)
+- [Russian Documentation](docs/ru/index)
 
-# How to update the content
+---
 
-Edit this file to update your homepage, then `push` your changes to trigger a site rebuild.
+[Quartz 5 docs' site](https://quartz.jzhao.xyz) | [Example site built with this template (in Russian)](https://sergeypugin.github.io/itmo-notebook)

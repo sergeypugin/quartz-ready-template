@@ -1,105 +1,106 @@
-# Obsidian & Quartz Template
+# Quartz 5 Markdown Website Template
 
 [English](README.md) | [Русский](README.ru.md)
 
 [![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-22C55E?logo=github-actions&logoColor=white)](https://pages.github.com/)
-[![Quartz 5](https://img.shields.io/badge/Engine-Quartz%205-7C3AED?logo=obsidian&logoColor=white)](https://quartz.jzhao.xyz)
+[![Quartz 5](https://img.shields.io/badge/Engine-Quartz%205-7C3AED)](https://quartz.jzhao.xyz)
 [![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE.md)
 
 [![Use this template](https://img.shields.io/badge/Use_this_template-2ea44f?style=for-the-badge&logo=github)](https://github.com/sergeypugin/quartz-ready-template/generate)
 
-A ready-to-use, configured, and optimized template for instantly publishing notes and knowledge bases from [Obsidian](https://obsidian.md/) as a static website powered by [Quartz 5](https://quartz.jzhao.xyz/).
+A ready-to-use template for publishing Markdown notes and knowledge bases as a static website powered by [Quartz 5](https://quartz.jzhao.xyz/). Edit Markdown files with any editor; Obsidian is optional.
 
-[GitHub vs Quartz](#github-vs-quartz) | [Quick start](#quick-start-create-your-website-in-1-minute) | [Local setup and testing](#local-setup-and-testing) | [Documentation](#documentation)
+[Features](#features) | [Quick start](#quick-start-publish-your-site) | [Local setup and testing](#local-setup-and-testing) | [Markdown normalization](#markdown-normalization) | [Documentation](#documentation)
 
-[Example site built with this template](https://sergeypugin.github.io/itmo-notebook) | [Example site from the Quartz 5 documentation](https://quartz.jzhao.xyz)
+[Example site built with this template](https://sergeypugin.github.io/itmo-notebook) | [Quartz 5 documentation site](https://quartz.jzhao.xyz)
 
 ---
 
-## GitHub vs Quartz
+## Features
 
-GitHub Markdown does not support most of Obsidian's convenient Markdown features. This template renders the following correctly on the site:
-- **Wiki-links:** `[[Note name]]` and `[[Note name|Custom text]]` with automatic path resolution.
-- **Callouts:** `> [!quote]`, `> [!success]`, `> [!bug]`, and more. Folding and custom titles are supported (`> [!note]- Clarification`, `> [!important]+ Important!`).
-- Support for Obsidian Bases (`.base`) and Canvas (`.canvas`) files, and much more
+GitHub's Markdown renderer does not support every extension Quartz can render. Quartz also processes Obsidian-compatible syntax and file formats, including:
 
-## Quick start: create your website in 1 minute
+- **Wiki-style links:** `[[Note name]]` and `[[Note name|Custom text]]` with automatic path resolution
+- **Callouts:** `> [!quote]`, `> [!success]`, `> [!bug]`, and more, including folding and custom titles such as `> [!note]- Clarification` and `> [!important]+ Important!`
+- **Bases** (`.base`) and **Canvas** (`.canvas`) files; see [Customization & Bases](content/docs/en/customization.md) for examples
 
-1. Click the green **Use this template** button at the top of this page and select **Create a new repository**.
-2. In your new repository, go to **Settings** -> **Pages**.
-3. Under **Build and deployment**, select **Source: GitHub Actions**.
-4. Clone the repository to your computer
-5. In `.github/workflows/deploy.yml`, uncomment the three lines at the beginning of the file
-6. Run `git commit` and then `git push`.
-7. The site will be automatically published at `https://{user}.github.io/{repo}` in about a minute. You can find more information in the **Deployments** tab on the right side of your repository page.
+Obsidian is optional. Quartz processes these features from files in `content/` when it builds the site.
 
->[!important]
->Make sure that the `content/` folder always contains an `index.md` note. This is the page that opens when visiting `https://{user}.github.io/{repo}`. Without it, the site will not be published
+## Quick start: publish your site
 
->[!note]
->When you click on a folder on the site, its `index.md` opens if it exists; otherwise, a simple list of all files in the folder is shown
+1. Click the green **Use this template** button at the top of this page and select **Create a new repository**
+2. In the new repository, open **Settings** > **Pages** and select **GitHub Actions** as the deployment source
+3. To start the first deployment, open **Actions**, select **Deploy Quartz site to GitHub Pages**, click **Run workflow**, and choose `main`
+4. Edit `content/index.md` or add your Markdown notes, then commit and push the changes to `main`. You can edit files on GitHub or clone the repository and use your preferred editor. Future pushes to `main` start deployments automatically
+5. GitHub Pages shows the site URL in **Settings** > **Pages**; project sites usually use `https://{user}.github.io/{repo}`
 
->[!tip]
->To set your own text in the top-left corner instead of `Quartz 5`, go to `quartz.config.yaml` and enter your text in this block instead of `Quartz 5`:
+> [!important]
+> The site's home page is `content/index.md`
+
+> [!note]
+> When you open a folder on the site, Quartz shows its `index.md` if one exists; otherwise, it shows a list of files in that folder
+
+> [!tip]
+> To change the text in the top-left corner, edit the `pageTitle` value in `quartz.config.yaml`:
+>
 > ```yaml
 > configuration:
 >   pageTitle: Quartz 5
 > ```
->
-### Tips for use
 
->[!important]
->For convenience when working with notes, it is recommended to open the `content/` folder as your Vault rather than opening the repository itself. The folder name may be inconvenient if you have multiple Vaults. To change the name of the notes folder:
->1. Rename the `content/` folder to whatever you prefer. The best option is your repository name
->2. Go to `.github/workflows/deploy.yml` and make the following change:
-> ```yml
-> # Before:
->       - name: Build Quartz
->         run: npx quartz build
->
-> # After (for example, if the folder is named notes):
->       - name: Build Quartz
->         run: npx quartz build -d notes
-> ```
->Now, after every `push` to the repository, the notes folder used for the site will change to the one you specified.
+### Working with your notes
 
->[!tip]
->You can name notes not in English, but when copying a site link it often turns into something like this: `https://{user}.github.io/{repo}/path/to/note/#%D0%B4%D0%BE%D0%B1%D1%80%D0%BE-%D0%BF...`.
->
->To avoid this, it is recommended to name notes in English without spaces and use the `title` property for their display names, which is automatically extracted from the note on the site. You can see an example of this approach in the pre-created `content/index.md` file.
+> [!important]
+> Quartz builds the site from files in `content/`; Obsidian is not required. If you use Obsidian to edit your notes, you can open `content/` as a Vault. To rename the notes folder, rename `content/` and update the Quartz build command in `.github/workflows/deploy.yml`. For example, if the folder is named `notes`, change `npx quartz build` to `npx quartz build -d notes`
 
->[!note]
->If you want to change the interface language to Russian, go to `quartz.config.yaml` in the repository root and replace `locale: en-US` with `locale: ru-RU`. I personally prefer not to do this, because with a font that is not designed for Russian, the text will appear smaller
+> [!tip]
+> You can name notes in any language. Non-Latin characters may be percent-encoded in page URLs. To keep URLs simple, use English filenames without spaces and set the display name with the `title` property. See `content/index.md` for an example
+
+> [!note]
+> Change the `locale` value in `quartz.config.yaml` to set the Quartz interface language. This changes interface labels, not the language of your notes. The current Quartz version supports 30 locale codes: `ar-SA`, `ca-ES`, `cs-CZ`, `de-DE`, `en-GB`, `en-US`, `es-ES`, `fa-IR`, `fi-FI`, `fr-FR`, `he-IL`, `hu-HU`, `id-ID`, `it-IT`, `ja-JP`, `kk-KZ`, `ko-KR`, `lt-LT`, `nb-NO`, `nl-NL`, `pl-PL`, `pt-BR`, `ro-RO`, `ru-RU`, `th-TH`, `tr-TR`, `uk-UA`, `vi-VN`, `zh-CN`, and `zh-TW`
 
 ## Local setup and testing
 
-To preview the site locally, you need [Node.js](https://nodejs.org/) (version 22 or newer). Go to the root of the cloned repository and run:
+To preview the site locally, install [Node.js](https://nodejs.org/) version 22 or newer. From the repository root, run:
 
 ```bash
-# 1. Install dependencies
+# Install dependencies
 npm ci
 
-# 2. Install Quartz plugins
+# Install the Quartz plugins configured for this project
 npx quartz plugin install --from-config
 
-# 3. Start the local server (if the folder is the default 'content')
+# Start the local server with the default content/ folder
 npx quartz build --serve
 
-# If you renamed the folder (for example, to notes):
+# If you renamed the folder, for example to notes/
 npx quartz build --serve -d notes
 ```
 
-After running these commands, the terminal will print the address where the site is available. It is usually [http://localhost:8080](http://localhost:8080). Changes to files in the `content/` folder automatically refresh the page.
+The terminal prints the local site address, usually [http://localhost:8080](http://localhost:8080). Changes to files in `content/` refresh the page automatically
 
-### Service files and Git
-The following directories are created while installing dependencies and building locally:
-- `node_modules/` -- project libraries and dependencies
-- `public/` -- the compiled static site (HTML, JS, CSS, generated graphs)
-- `.quartz-cache/` -- the Markdown parser cache for faster subsequent builds
+## Markdown normalization
 
-All these folders are listed in `.gitignore`, so they will not be added to your GitHub repository.
+The repository includes Python scripts in `scripts/` to verify display math (`$$`), convert wikilinks to relative links, and check embed spacing before pushing. See [scripts/README.md](scripts/README.md) for usage and how to enable them in GitHub Actions.
+
+### Generated files and Git
+
+Local dependency installation and site builds create these directories:
+
+- `node_modules/` -- project dependencies
+- `public/` -- the generated static site, including HTML, JavaScript, CSS, and graphs
+- `.quartz-cache/` -- a Markdown parser cache for faster subsequent builds
+
+These directories are listed in `.gitignore` and will not be added to your Git repository
 
 ## Documentation
+
+- [Bases & Note Properties](content/docs/en/bases-and-properties.md) — Configuring YAML metadata and dynamic tables.
+- [Markdown Normalization](content/docs/en/normalization.md) — Python scripts for formatting and validation.
+- [Local Setup](content/docs/en/local-setup.md) — Running Quartz locally and configuring locales.
+
+> [!important] Recommended: delete demo content
+> You can safely delete or replace the default files in the `content/` directory. They are provided solely as an example of the site structure and as documentation for the template.
 
 - [Official Quartz documentation](https://quartz.jzhao.xyz/)
 - [Quartz source repository on GitHub](https://github.com/jackyzha0/quartz)
