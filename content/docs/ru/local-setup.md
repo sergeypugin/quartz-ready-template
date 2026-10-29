@@ -13,7 +13,7 @@ npm ci
 # Установить плагины Quartz, настроенные для этого проекта
 npx quartz plugin install --from-config
 
-# Запустить локальный сервер со стандартной папкой content/
+# Запустить локальный сервер с папкой content/ по умолчанию
 npx quartz build --serve
 ```
 
