@@ -10,6 +10,7 @@ Welcome to the documentation for the Quartz 5 Markdown Website Template.
 To change the Quartz interface language (search placeholder, dates, table headers), update the `locale` value in `quartz.config.yaml` (e.g., `locale: en-US`).
 
 > [!tip]- Supported interface languages
+>
 > - `ar-SA`
 > - `ca-ES`
 > - `cs-CZ`
@@ -62,6 +63,3 @@ views:
       - property: priority
         direction: ASC
 ```
-
----
-[Back to Home](index)

@@ -18,6 +18,3 @@ npx quartz build --serve
 ```
 
 The terminal prints the local site address, usually [http://localhost:8080](http://localhost:8080). Changes to files in `content/` refresh the page automatically.
-
----
-[Back to Home](index)

@@ -19,13 +19,10 @@ This template transforms your folder of Markdown files into a full-featured webs
 3.  **Localization**: Interface support for 30+ languages (set via `locale`).
 4.  **Backlinks**: Quartz automatically shows which pages link to the current note.
 
-> [!success] Ready in 15 Minutes
+> [!info] Ready in 15 Minutes
 > It takes about 10 minutes to read the docs and 5 minutes to clone and configure the repository to launch your own "digital garden."
 
 > [!tip]
 > You can even resize images using the pipe syntax: `![alt text|200](image.png)` or `![alt text|200x100](image.png)`.
 
 Obsidian is optional. Quartz processes these features from files in `content/` when it builds the site.
-
----
-[Back to Home](index)

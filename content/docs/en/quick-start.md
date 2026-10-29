@@ -13,6 +13,7 @@ priority: 20
 5. GitHub Pages shows the site URL in **Settings** > **Pages**; project sites usually use `https://{user}.github.io/{repo}`.
 
 > [!note] File Organization
+>
 > - The site's home page is `content/index.md`.
 > - Quartz builds the site from files in `content/`; Obsidian is not required. If you use Obsidian to edit your notes, you can open `content/` as a Vault.
 > - When you open a folder on the site, Quartz shows its `index.md` if one exists; otherwise, it shows a list of files in that folder.
@@ -20,8 +21,6 @@ priority: 20
 ### Working with your notes
 
 > [!tip] Configuration & Naming
+>
 > - To change the Quartz interface language, set the `locale` value in `quartz.config.yaml` (e.g., `locale: en-US`).
 > - You can name notes in any language. To keep URLs simple, use English filenames without spaces and set the display name with the `title` property in frontmatter.
-
----
-[Back to Home](index)
