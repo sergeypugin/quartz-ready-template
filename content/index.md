@@ -25,7 +25,7 @@ filters:
     - file.folder.startsWith("docs/")
 properties:
   title:
-    displayName: 📚 Language
+    displayName: 🌐 Language
   description:
     displayName: 📝 Description
 views:
