@@ -1,6 +1,6 @@
 ---
 title: Quick Start
-description: How to create a repository from this template, configure its locale and site title, and deploy it to GitHub Pages.
+description: How to create a site from this template, configure a custom domain and locale, and deploy it to GitHub Pages.
 priority: 20
 ---
 
@@ -12,6 +12,14 @@ priority: 20
 4. Edit `[[index|content/index.md]]` or add your Markdown notes, then commit and push the changes to `main`. Future pushes to `main` start deployments automatically.
 5. GitHub Pages shows the site URL in **Settings** > **Pages**; project sites usually use `https://{user}.github.io/{repo}`.
 
+### Custom domain
+
+To use a custom domain, configure its DNS records with your DNS provider and add the domain in **Settings** > **Pages**. Follow [GitHub's official instructions](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
+
+Then add a plain-text file named `CNAME` to the repository root containing only the domain name, for example `notes.example.com`. Do not include `https://` or a path. On each deployment, the workflow reads this value to set `baseUrl` and copies `CNAME` into the published site.
+
+You do not need a `CNAME` file for a standard GitHub Pages project URL (`{user}.github.io/{repo}`).
+
 ### Localization and site title
 
 Set the interface language and site title in `quartz.config.yaml`. Both settings go under `configuration`:
@@ -22,7 +30,7 @@ configuration:
   pageTitle: My Knowledge Base
 ```
 
-`locale` controls interface text, including the Explorer label, search, dates, and table headers. `pageTitle` sets the site title displayed above the Explorer tree.
+`locale` controls interface text, including the Explorer label, search, dates, and table headers. `pageTitle` sets the site title displayed above the Explorer file tree.
 
 > [!tip]- Supported `locale` values
 >

@@ -8,8 +8,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: "pages"
@@ -25,23 +23,53 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 22
+          cache: npm
       - name: Install Dependencies
         run: npm ci
       - name: Install Plugins
         run: npx quartz plugin install --from-config
-      - name: Auto-configure baseUrl for GitHub Pages
+      - name: Configure baseUrl for GitHub Pages
+        env:
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+          REPOSITORY_NAME: ${{ github.event.repository.name }}
         run: |
-          sed -i "s|baseUrl:.*|baseUrl: ${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}|" quartz.config.yaml
+          if [ -f CNAME ]; then
+            line_count="$(awk 'END { print NR }' CNAME)"
+            if [ "$line_count" -ne 1 ]; then
+              echo "CNAME must contain exactly one domain name." >&2
+              exit 1
+            fi
+            base_url="$(tr -d '\r' < CNAME)"
+            if [ -z "$base_url" ] || [[ ! "$base_url" =~ ^[A-Za-z0-9]([A-Za-z0-9-]*[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]*[A-Za-z0-9])?)+$ ]]; then
+              echo "CNAME must contain a domain name without a scheme or path." >&2
+              exit 1
+            fi
+          elif [ "$REPOSITORY_NAME" = "$REPOSITORY_OWNER.github.io" ]; then
+            base_url="$REPOSITORY_OWNER.github.io"
+          else
+            base_url="$REPOSITORY_OWNER.github.io/$REPOSITORY_NAME"
+          fi
+          sed -i "s|^  baseUrl:.*|  baseUrl: $base_url|" quartz.config.yaml
       - name: Build Quartz
         run: npx quartz build
+      - name: Include custom domain file
+        run: |
+          if [ -f CNAME ]; then
+            cp CNAME public/CNAME
+          fi
       - name: Upload artifact
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v5
         with:
           path: public
 
   deploy:
     needs: build
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

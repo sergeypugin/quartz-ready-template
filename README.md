@@ -25,13 +25,13 @@ GitHub Markdown does not support most of Obsidian's convenient Markdown features
 
 ## Quick start: create your website in 1 minute
 
-1. Click the green **Use this template** button at the top of this page and select **Create a new repository**.
-2. In your new repository, go to **Settings** -> **Pages**.
-3. Under **Build and deployment**, select **Source: GitHub Actions**.
-4. Clone the repository to your computer
-5. In `.github/workflows/deploy.yml`, uncomment the three lines at the beginning of the file
-6. Run `git commit` and then `git push`.
-7. The site will be automatically published at `https://{user}.github.io/{repo}` in about a minute. You can find more information in the **Deployments** tab on the right side of your repository page.
+1. Click the green **Use this template** button at the top of this page and select **Create a new repository**
+2. In your new repository, go to **Settings** > **Pages** and select **GitHub Actions** as the deployment source
+3. Clone the repository to your computer
+4. Edit `content/index.md` or add notes, then commit and push your changes to `main`. Future pushes to `main` deploy the site automatically
+5. Find the site URL in **Settings** > **Pages**. Project sites usually use `https://{user}.github.io/{repo}`
+
+For custom-domain setup, see the [Quick Start guide](content/docs/en/quick-start.md).
 
 >[!important]
 >Make sure that the `content/` folder always contains an `index.md` note. This is the page that opens when visiting `https://{user}.github.io/{repo}`. Without it, the site will not be published
@@ -69,7 +69,7 @@ GitHub Markdown does not support most of Obsidian's convenient Markdown features
 >To avoid this, it is recommended to name notes in English without spaces and use the `title` property for their display names, which is automatically extracted from the note on the site. You can see an example of this approach in the pre-created `content/index.md` file.
 
 >[!note]
->If you want to change the interface language to Russian, go to `quartz.config.yaml` in the repository root and replace `locale: en-US` with `locale: ru-RU`. I personally prefer not to do this, because with a font that is not designed for Russian, the text will appear smaller
+>If you want to change the interface language to Russian, go to `quartz.config.yaml` in the repository root and replace `locale: en-US` with `locale: ru-RU`. I personally prefer not to do this because the site's font is not designed for Russian, so the text may appear smaller.
 
 ## Local setup and testing
 
