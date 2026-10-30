@@ -4,7 +4,7 @@ description: Previewing the site locally with Node.js and testing dependencies.
 priority: 30
 ---
 
-To preview the site locally, install [Node.js](https://nodejs.org/) version 22 or newer. From the repository root, run:
+To preview the site locally, install [Node.js](https://nodejs.org/) version 22.22 or newer. From the repository root, run:
 
 ```bash
 # Install dependencies

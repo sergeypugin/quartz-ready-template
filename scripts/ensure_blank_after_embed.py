@@ -25,7 +25,7 @@ EMBED = re.compile(
 
 def frontmatter_end(lines):
     """Index of the closing `---`, or None when there is no frontmatter."""
-    if not lines or lines[0].strip() != "---":
+    if not lines or lines[0].removeprefix("\ufeff").strip() != "---":
         return None
     for index in range(1, len(lines)):
         if lines[index].strip() == "---":

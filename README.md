@@ -73,7 +73,7 @@ For custom-domain setup, see the [Quick Start guide](content/docs/en/quick-start
 
 ## Local setup and testing
 
-To preview the site locally, you need [Node.js](https://nodejs.org/) (version 22 or newer). Go to the root of the cloned repository and run:
+To preview the site locally, you need [Node.js](https://nodejs.org/) (version 22.22 or newer). Go to the root of the cloned repository and run:
 
 ```bash
 # 1. Install dependencies

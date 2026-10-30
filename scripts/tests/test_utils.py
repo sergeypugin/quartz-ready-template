@@ -31,6 +31,13 @@ class UtilsTest(unittest.TestCase):
         args = parser.parse_args([])
         self.assertTrue(hasattr(args, "root"))
 
+    def test_default_content_root(self):
+        parser = argparse.ArgumentParser()
+        utils.add_root_argument(parser)
+        args = parser.parse_args([])
+        self.assertEqual(utils.DEFAULT_CONTENT_DIR, "content")
+        self.assertEqual(args.root, utils.REPOSITORY_ROOT / "content")
+
     def test_markdown_files_finds_md_and_ignores_ignored_dirs(self):
         (self.root / "a.md").write_text("a", encoding="utf-8")
         (self.root / "sub").mkdir()

@@ -20,13 +20,23 @@ import utils
 FENCE = re.compile(r"^\s*(```|~~~)")
 HEADING = re.compile(r"^#{1,6}\s")
 QUOTE = re.compile(r"^(\s*(?:>\s*)*)")
-INLINE = re.compile(r"(?<!\$)\$(?!\$)([^$\n]+?)(?<!\$)\$(?!\$)")
-DOLLARS = re.compile(r"(?<!\\)\$+")
+INLINE_DELIMITER = re.compile(r"(?<!\$)\$(?!\$)")
+DOLLARS = re.compile(r"\$+")
 CODE_SPAN = re.compile(r"(`+)(.*?)\1")
 
 
 def mask_code(text):
     return CODE_SPAN.sub(lambda match: " " * len(match.group(0)), text)
+
+
+def is_escaped(text, index):
+    """Return whether a dollar has an odd number of preceding backslashes."""
+    backslashes = 0
+    index -= 1
+    while index >= 0 and text[index] == "\\":
+        backslashes += 1
+        index -= 1
+    return backslashes % 2 == 1
 
 
 def split_display(text):
@@ -41,6 +51,8 @@ def split_display(text):
     singles = 0
 
     for match in DOLLARS.finditer(visible):
+        if is_escaped(visible, match.start()):
+            continue
         width = match.end() - match.start()
         if width == 1:
             singles += 1
@@ -62,19 +74,29 @@ def normalize_inline(line):
     stripped = line.strip()
     if stripped.startswith("|") and stripped.endswith("|"):
         return line
-    if "`" in line:
-        masked = mask_code(line)
-        pieces = []
-        last = 0
-        for match in INLINE.finditer(masked):
-            pieces.append(line[last:match.start()])
-            pieces.append(f"${line[match.start() + 1 : match.end() - 1].strip()}$")
-            last = match.end()
-        if not pieces:
-            return line
-        pieces.append(line[last:])
-        return "".join(pieces)
-    return INLINE.sub(lambda match: f"${match.group(1).strip()}$", line)
+    masked = mask_code(line)
+    matches = []
+    opening = None
+    for match in INLINE_DELIMITER.finditer(masked):
+        if is_escaped(masked, match.start()):
+            continue
+        if opening is None:
+            opening = match.start()
+        else:
+            matches.append((opening, match.end()))
+            opening = None
+
+    if not matches:
+        return line
+
+    pieces = []
+    last = 0
+    for start, end in matches:
+        pieces.append(line[last:start])
+        pieces.append(f"${line[start + 1 : end - 1].strip()}$")
+        last = end
+    pieces.append(line[last:])
+    return "".join(pieces)
 
 
 class Formatter:
@@ -105,7 +127,7 @@ class Formatter:
             self.lines.append(line)
             return
 
-        if number == 1 and line.strip() == "---":
+        if number == 1 and line.removeprefix("\ufeff").strip() == "---":
             self.frontmatter = True
             self.lines.append(line)
             return

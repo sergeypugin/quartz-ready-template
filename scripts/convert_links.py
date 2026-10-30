@@ -72,6 +72,7 @@ class LinkConverter:
                 self.files.add(relative_path.as_posix().lower())
                 self.add_index_entry(relative_path.as_posix(), relative_path)
                 self.add_index_entry(file_path.name, relative_path)
+                self.add_index_entry(file_path.stem, relative_path)
 
     def add_index_entry(self, key, path):
         normalized_key = key.lower().replace("\\", "/")
@@ -150,9 +151,8 @@ class LinkConverter:
         issues = []
         lines = []
         fence = None
-        text_clean = text.lstrip("\ufeff")
-        frontmatter = self.frontmatter_end(text_clean)
-        for number, line in enumerate(text_clean.splitlines(keepends=True), 1):
+        frontmatter = self.frontmatter_end(text)
+        for number, line in enumerate(text.splitlines(keepends=True), 1):
             if frontmatter is not None and number <= frontmatter:
                 lines.append(line)
                 continue
@@ -182,7 +182,7 @@ class LinkConverter:
         under its own rules, so YAML stays as written.
         """
         lines = text.splitlines()
-        if not lines or lines[0].strip() != "---":
+        if not lines or lines[0].removeprefix("\ufeff").strip() != "---":
             return None
         for number, line in enumerate(lines[1:], 2):
             if line.strip() == "---":
