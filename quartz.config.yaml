@@ -202,7 +202,7 @@ plugins:
     enabled: true
     options:
       links:
-        Template GitHub: https://github.com/sergeypugin/quartz-ready-template
+        GitHub: https://github.com/sergeypugin/quartz-ready-template
         Obsidian Guide: https://github.com/sergeypugin/obsidian-guide
     layout:
       position: footer
