@@ -1,5 +1,5 @@
 ---
-title: Home
+title: quartz-ready-template
 ---
 
 # 🪴 Quartz 5 Markdown Website Template
