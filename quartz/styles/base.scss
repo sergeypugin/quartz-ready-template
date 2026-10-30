@@ -3,8 +3,10 @@
 @use "./variables.scss" as *;
 @use "./syntax.scss";
 @use "./callouts.scss";
+@use "./_scrollbar.scss" as scrollbar;
 
 html {
+  @include scrollbar.styled();
   scroll-behavior: smooth;
   text-size-adjust: none;
   overflow-x: hidden;
@@ -219,6 +221,8 @@ a {
     }
 
     & .sidebar {
+      @include scrollbar.styled();
+      overflow-y: auto;
       gap: 1.2rem;
       top: 0;
       box-sizing: border-box;

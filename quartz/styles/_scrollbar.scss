@@ -1,0 +1,38 @@
+@use "./variables.scss" as *;
+
+/**
+ * Styled scrollbar mixin
+ */
+@mixin styled {
+  scrollbar-width: auto;
+  scrollbar-color: var(--lightgray) transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--lightgray);
+    border-radius: 8px;
+  }
+}
+
+// Wider scrollbar for main content on hover
+article {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background: var(--lightgray);
+  }
+}
