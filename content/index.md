@@ -21,8 +21,8 @@ A ready-to-use template for publishing Markdown notes and knowledge bases as a s
 ```base
 filters:
   and:
-    - file.name == "index"
-    - file.folder.startsWith("docs/")
+    - file.basename == "index"
+    - file.inFolder("docs")
 properties:
   title:
     displayName: 🌐 Language
