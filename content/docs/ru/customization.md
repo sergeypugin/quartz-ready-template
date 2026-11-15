@@ -63,6 +63,3 @@ views:
 1. **`filters`**: фильтры выбора заметок (например, `file.inFolder("folder")`, `file.hasTag("tag")`, `file.ext == "md"`).
 2. **`properties`**: заголовки столбцов (`displayName`).
 3. **`views`**: тип отображения (`table`, `cards` или `list`), порядок столбцов (`order`) и сортировка (`sort` с направлением `ASC` или `DESC`).
-
----
-[[docs/ru/index|Назад к документации]]

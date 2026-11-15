@@ -72,6 +72,3 @@ Quartz displays these properties in a metadata card at the top of the note using
 - **`filters`**: define conditions to include specific notes (e.g., `file.path.startswith("docs/en")` or `tags.includes("guide")`).
 - **`sort`**: order table entries by properties like `priority`, `title`, or `created` in `asc` or `desc` order.
 - **`properties`**: select which columns to display and assign custom header labels (`label`).
-
----
-[[docs/en/index|Back to Documentation Index]]

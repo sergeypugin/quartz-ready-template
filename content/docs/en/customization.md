@@ -63,6 +63,3 @@ views:
 1. **`filters`**: criteria for selecting notes (e.g. `file.inFolder("folder")`, `file.hasTag("tag")`, `file.ext == "md"`).
 2. **`properties`**: customizing column header titles (`displayName`).
 3. **`views`**: view type (`table`, `cards`, or `list`), column sequence (`order`), and sorting (`sort` with `direction: ASC` or `DESC`).
-
----
-[[docs/en/index|Back to Documentation]]

@@ -95,6 +95,3 @@ This option formats notes and commits the changes back to the repository. It req
     git diff --cached --quiet || git commit -m "chore: normalize markdown"
     git push origin "HEAD:${GITHUB_REF_NAME}"
 ```
-
----
-[[docs/en/index|Back to Documentation]]

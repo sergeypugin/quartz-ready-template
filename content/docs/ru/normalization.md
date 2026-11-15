@@ -95,6 +95,3 @@ CI завершится ошибкой, если ваши заметки не с
     git diff --cached --quiet || git commit -m "chore: normalize markdown"
     git push origin "HEAD:${GITHUB_REF_NAME}"
 ```
-
----
-[[docs/ru/index|Назад к документации]]
